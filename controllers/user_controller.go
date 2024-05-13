@@ -1,10 +1,10 @@
 package controllers
 
 import (
-	"Toy_Cryptocurrency/configs"
-	"Toy_Cryptocurrency/functions"
-	"Toy_Cryptocurrency/models"
-	"Toy_Cryptocurrency/responses"
+	"Crypto_Exchange_Backend/configs"
+	"Crypto_Exchange_Backend/functions"
+	"Crypto_Exchange_Backend/models"
+	"Crypto_Exchange_Backend/responses"
 	"context"
 	"crypto"
 	"crypto/rand"
@@ -29,7 +29,7 @@ import (
 	"gopkg.in/gomail.v2"
 )
 
-var userCollection = configs.GetCollection(configs.DB, "Users")
+var userCollection = configs.GetCollection(configs.DB, "users")
 var validateUser = validator.New()
 
 func SendSecurityCodeLogin() http.HandlerFunc {

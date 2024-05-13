@@ -1,7 +1,7 @@
 package routes
 
 import (
-	"Toy_Cryptocurrency/controllers"
+	"Crypto_Exchange_Backend/controllers"
 
 	"github.com/gorilla/mux"
 )

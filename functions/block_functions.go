@@ -1,7 +1,7 @@
 package functions
 
 import (
-	"Toy_Cryptocurrency/models"
+	"Crypto_Exchange_Backend/models"
 	"crypto"
 	"crypto/rsa"
 	"crypto/sha256"

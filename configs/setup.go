@@ -41,8 +41,8 @@ var DB = ConnectDB()
 
 //var DBBlock = ConnectDBBlock()
 
-// GetCollection Obtener una colleción de la BD
+// GetCollection Obtener una collection de la BD
 func GetCollection(client *mongo.Client, collectionName string) *mongo.Collection {
-	collection := client.Database("Cryptocurrency").Collection(collectionName)
+	collection := client.Database("crypto_exchange").Collection(collectionName)
 	return collection
 }

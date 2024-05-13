@@ -1,7 +1,7 @@
 package main
 
 import (
-	"Toy_Cryptocurrency/routes"
+	"Crypto_Exchange_Backend/routes"
 	"log"
 	"net/http"
 
