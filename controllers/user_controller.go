@@ -15,7 +15,6 @@ import (
 	"encoding/base64"
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
 	"net/http"
 	"os"
 	"runtime"
@@ -162,7 +161,7 @@ func VerifySecurityCodeLogin() http.HandlerFunc {
 		} else {
 			securityCodeTxtRoute = "/app/security_codes/users_codes_texts/" + user.Email + ".txt"
 		}
-		securityCodeFile, err := ioutil.ReadFile(securityCodeTxtRoute)
+		securityCodeFile, err := os.ReadFile(securityCodeTxtRoute)
 		if err != nil {
 			writer.WriteHeader(http.StatusInternalServerError)
 			response := responses.UserResponse{
@@ -350,7 +349,7 @@ func VerifySecurityCodeRegister() http.HandlerFunc {
 		} else {
 			securityCodeTxtRoute = "/app/security_codes/users_codes_texts/" + user.Email + ".txt"
 		}
-		securityCodeFile, err := ioutil.ReadFile(securityCodeTxtRoute)
+		securityCodeFile, err := os.ReadFile(securityCodeTxtRoute)
 		if err != nil {
 			writer.WriteHeader(http.StatusInternalServerError)
 			response := responses.UserResponse{
@@ -677,7 +676,7 @@ func GetBalance() http.HandlerFunc {
 			_ = results.Close(ctx)
 		}(results, ctx)
 
-		var balance float64 = 0.00
+		var balance = 0.00
 		for results.Next(ctx) {
 			var singleBlock models.Block
 			if err = results.Decode(&singleBlock); err != nil {
