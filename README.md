@@ -1,5 +1,5 @@
 # Integrantes del proyecto
-* Jorge Nicho Galagarza
+* Jorge Ernesto Nicho Galagarza
 * David Soto Aguirre
 
 # Crypto Exchange Backend
