@@ -97,3 +97,13 @@ El ejemplo mostrado anteriormente es la compilación para un sistema operativo b
 ```
 $ env GOOS=linux GOARCH=amd64 go build -o app
 ```
+
+# Referencias
+
+- Bartolomeo, A., & Machin Urbay, G. (2020). Introducción a la tecnología blockchain: su impacto en las Ciencias Económicas. Recuperado el, 23(08), 2022.
+- Gomez Lasala, I. (2018). Blockchain. La revolucion en la industria (Bachelor's thesis, Universitat Politècnica de Catalunya).
+- Velasco Magalhaes, M. (2023). El presente y futuro de la tecnología Blockchain y su potencial en el almacenamiento en la nube.
+- Grupe, N., & Lozada Freytes, M. (2019). Almacenamiento de archivos en la nube descentralizado, basado en Blockchain (Doctoral dissertation, Universidad Católica de Córdoba).
+- Website pdf: https://www.omg.org/cloud/deliverables/CSCC-Cloud-Customer-Architecture-for-Blockchain.pdf
+
+
