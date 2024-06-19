@@ -3,8 +3,8 @@ package functions
 import (
 	"Crypto_Exchange_Backend/models"
 	"image/color"
-	"io/ioutil"
 	"math/rand"
+	"os"
 	"runtime"
 	"strconv"
 	"time"
@@ -30,7 +30,7 @@ func CreateSecurityCode(user models.User) (int, string) {
 	} else {
 		securityCodeTxtRoute = "/app/security_codes/users_codes_texts/" + user.Email + ".txt"
 	}
-	err := ioutil.WriteFile(securityCodeTxtRoute, securityCode, 0777)
+	err := os.WriteFile(securityCodeTxtRoute, securityCode, 0777)
 	if err != nil {
 		return 1, ""
 	}
