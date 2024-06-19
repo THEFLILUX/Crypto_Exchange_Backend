@@ -6,6 +6,7 @@ import (
 	"net/http"
 
 	"github.com/gorilla/mux"
+	"github.com/rs/cors"
 )
 
 func main() {
@@ -17,5 +18,10 @@ func main() {
 	// Rutas de Users
 	routes.UserRoute(router)
 
-	log.Fatal(http.ListenAndServe(":80", router))
+	// Habilitar CORS para todas las rutas
+	corsRouter := cors.New(cors.Options{
+		AllowedMethods: []string{"POST", "GET", "PUT", "DELETE"},
+	}).Handler(router)
+
+	log.Fatal(http.ListenAndServe(":8080", corsRouter))
 }
