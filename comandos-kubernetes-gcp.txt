@@ -1,0 +1,37 @@
+    1  export PROJECT_ID=boxersecurity
+    2  echo $PROJECT_ID
+    3  gcloud config set project $PROJECT_ID
+    4  gcloud artifacts repositories create crypto-exchange-repo    --repository-format=docker    --location=us-central1    --description="Crypto Exchange Repository"
+    5  ls
+    6  cat README-cloudshell.txt 
+    7  clear
+    8  git clone https://github.com/THEFLILUX/Crypto_Exchange_Backend
+    9  cd Crypto_Exchange_Backend/
+   10  clear
+   11  docker build -t us-central1-docker.pkg.dev/${PROJECT_ID}/crypto-exchange-repo/crypto-exchange-app:v1 .
+   12  git pull
+   13  docker build -t us-central1-docker.pkg.dev/${PROJECT_ID}/crypto-exchange-repo/crypto-exchange-app:v1 .
+   14  lcear
+   15  clear
+   16  docker images
+   17  gcloud artifacts repositories add-iam-policy-binding crypto-exchange-repo     --location=us-central1     --member=serviceAccount:475507843889-compute@developer.gserviceaccount.com     --role="roles/artifactregistry.reader"
+   18  docker run --rm -p 8080:8080 us-central1-docker.pkg.dev/${PROJECT_ID}/crypto-exchange-repo/crypto-exchange-app:v1
+   19  clear
+   20  gcloud auth configure-docker us-central1-docker.pkg.dev
+   21  docker push us-central1-docker.pkg.dev/${PROJECT_ID}/crypto-exchange-repo/crypto-exchange-app:v1
+   22  gcloud config set compute/region us-central1
+   23  gcloud container clusters create-auto crypto-exchange-cluster
+   24  gcloud container clusters get-credentials hello-cluster --region us-central1
+   25  gcloud container clusters get-credentials crypto-exchange-cluster --region us-central1
+   26  clear
+   27  gcloud container clusters get-credentials crypto-exchange-cluster --region us-central1
+   28  kubectl create deployment crypto-exchange-app --image=us-central1-docker.pkg.dev/${PROJECT_ID}/crypto-exchange-repo/crypto-exchange-app:v1
+   29  kubectl scale deployment crypto-exchange-app --replicas=3
+   30  kubectl autoscale deployment crypto-exchange-app --cpu-percent=80 --min=1 --max=5
+   31  kubectl get pods
+   32  clear
+   33  kubectl get pods
+   34  clear
+   35  kubectl expose deployment crypto-exchange-app --name=crypto-exchange-app-service --type=LoadBalancer --port 80 --target-port 8080
+   36  kubectl get service
+   37  history
