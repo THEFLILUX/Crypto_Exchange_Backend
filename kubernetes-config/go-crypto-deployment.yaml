@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: go-crypto-exchange-app
+    labels:
+        app: go-crypto-exchange-app
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            app: go-crypto-exchange-app
+    template:
+        metadata:
+            labels:
+                app: go-crypto-exchange-app
+        spec:
+            containers:
+                - name: go-crypto-exchange-app
+                  image: theflilux1402/crypto-exchange-backend
+                  ports:
+                      - containerPort: 80
